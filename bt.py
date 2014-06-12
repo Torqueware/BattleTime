@@ -26,7 +26,8 @@ wallpapers = []
 
 def changeWallpaper():
     if not os.fork():
-        print("not parent!")
+        random.seed()
+        os.execlp('hsetroot', 'hsetroot', '-fill', random.choice(wallpapers))
 
 def main(args):
     for arg in sys.argv:
