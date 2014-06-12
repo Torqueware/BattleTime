@@ -25,7 +25,8 @@ directory = 'Wallpapers'
 wallpapers = []
 
 def changeWallpaper():
-    print("Woke up!\n")
+    if not os.fork():
+        print("not parent!")
 
 def main(args):
     for arg in sys.argv:
