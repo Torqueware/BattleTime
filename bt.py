@@ -31,7 +31,16 @@ def changeWallpaper():
 
 def main(args):
     for arg in sys.argv:
-        print('unsupported arg %s', arg)
+        if arg == '-h' or arg == '--help':
+            print('Unsupported at this time')
+        elif arg == '-v' or arg == '--verbose':
+            print('Unsupported at this time')
+        elif arg == '-f' or arg == '--folder':
+            print('Unsupported at this time')
+        elif arg == '-i' or arg == '--interval':
+            print('Unsupported at this time')
+        else:
+            print('unsupported arg', arg)
 
     for dirpath, dirname, filename in os.walk(directory):
         for individual_file in filename:
@@ -45,4 +54,4 @@ def main(args):
         else:
             time.sleep(timer)
 
-main(sys.argv[1::])
+main(sys.argv)
