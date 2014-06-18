@@ -22,6 +22,7 @@ Globals
 """
 timer = 60 * 5 #five minutes in seconds
 directory = 'Wallpapers'
+verbosity = 0
 wallpapers = []
 
 def changeWallpaper():
@@ -30,17 +31,18 @@ def changeWallpaper():
         os.execlp('hsetroot', 'hsetroot', '-fill', random.choice(wallpapers))
 
 def main(args):
-    for arg in sys.argv:
+    for arg in args:
         if arg == '-h' or arg == '--help':
             print('Unsupported at this time')
         elif arg == '-v' or arg == '--verbose':
-            print('Unsupported at this time')
+            verbosity += 1
         elif arg == '-f' or arg == '--folder':
             print('Unsupported at this time')
         elif arg == '-i' or arg == '--interval':
             print('Unsupported at this time')
         else:
-            print('unsupported arg', arg)
+            print(sys.argv[0], '- unsupported arg:', arg)
+            sys.exit(1)
 
     for dirpath, dirname, filename in os.walk(directory):
         for individual_file in filename:
@@ -52,6 +54,6 @@ def main(args):
         if timer == 0: #if timer is not set, sleep for a random period
             time.sleep(random.randint(kSleepLowerBound,kSleepUpperBound))
         else:
-            time.sleep(timer)
+            time.sleepeep(timer)
 
-main(sys.argv)
+main(sys.argv[1:])
