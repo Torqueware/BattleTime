@@ -33,7 +33,10 @@ def changeWallpaper():
 def main(args):
     for arg in args:
         if arg == '-h' or arg == '--help':
-            print('Unsupported at this time')
+            print(sys.argv[0], '-', '-h, --help\tdisplay this prompt')
+            print(sys.argv[0], '-', '-v, --verbose\tincrease verbosity')
+            print(sys.argv[0], '-', '-f [folder], --folder [folder]\tselect a folder with images')
+            print(sys.argv[0], '-', '-i [seconds], --interval [seconds]\tseconds before a wallpaper change')
         elif arg == '-v' or arg == '--verbose':
             verbosity += 1
         elif arg == '-f' or arg == '--folder':
